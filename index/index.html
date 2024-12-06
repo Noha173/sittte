@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="ar"> 
+ <head> 
+  <meta charset="UTF-8"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <title>مسابقة عجلة الحظ - الرهان بالأرقام</title> 
+  <style>
+        /* كود CSS الخاص بك هنا */
+    </style> 
+ </head> 
+ <body> 
+  <div class="container"> 
+   <h1>مسابقة عجلة الحظ - الرهان بالأرقام</h1> 
+   <h2>استثمر دولارًا واربح</h2> <!-- نموذج تسجيل المشاركين --> 
+   <input type="text" id="name" placeholder="أدخل اسمك"> 
+   <input type="email" id="email" placeholder="أدخل بريدك الإلكتروني"> <button class="button" onclick="registerParticipant()">انضم الآن</button> 
+   <p id="message"></p> <!-- رابط الدفع بعد التسجيل --> 
+   <div id="paymentSection" class="payment-container" style="display:none;"> 
+    <h3>ادفع الآن للمشاركة</h3> 
+    <p>يرجى دفع 1 دولار عبر PayPal</p> <a href="https://www.paypal.me/yourusername/1" target="_blank"> <button class="button">ادفع عبر PayPal</button> </a> 
+   </div> 
+  </div> 
+  <script>
+        let participants = []; // قائمة المشاركين
+
+        // تسجيل مشارك جديد
+        function registerParticipant() {
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+
+            if (!name || !email) {
+                alert("يرجى ملء جميع الحقول!");
+                return;
+            }
+
+            participants.push({ name, email, paid: false });
+            document.getElementById("message").textContent = "تم تسجيلك بنجاح!";
+
+            // إظهار رابط الدفع
+            document.getElementById("paymentSection").style.display = "block";
+        }
+    </script> 
+ </body>
+</html>
